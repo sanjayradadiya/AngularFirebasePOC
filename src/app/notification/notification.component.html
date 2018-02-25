@@ -1,0 +1,22 @@
+<h1>Events</h1>
+<div>
+  
+  <div class="notification" *ngIf="notificationData; let loadNotificationData; else loading">
+    <div *ngFor="let notification of loadNotificationData" [@notification]="loadNotificationData.length">
+
+      <span>
+          <i class="fa fa-user-circle fa-3x" aria-hidden="true"></i>
+      </span>
+      <div style="float:right;width:84%">
+          {{notification.id}} is <span [class]="notification.state">
+              {{notification.state}}
+            </span> 
+            <div>{{notification.timestamp | date: 'yyyy-MM-dd hh:mm:ss a'}}</div>
+      </div>
+      <button title="Mark as Read" class="btn btn-primary btn-sm markAsRead" (click)="markAsRead(notification)">
+          <i class="fa fa-check" aria-hidden="true"></i>
+      </button>
+    </div>
+  </div>
+</div>
+<ng-template #loading>Loading Events Data...</ng-template>

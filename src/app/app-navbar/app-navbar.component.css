@@ -1,10 +1,20 @@
-.profile-pic{
-    height:35px;
-    width:35px;
-    border-radius:50%;
+.profile-pic {
+  height: 35px;
+  width: 35px;
+  border-radius: 50%;
 }
 
-.navbar-nav li{
-  padding-left:10px;
-  margin:auto;
+.navbar-nav li {
+  padding-left: 10px;
+  margin: auto;
+}
+
+.fa-bell-o {
+  color: #fff;
+}
+
+.badge {
+  position: absolute;
+  top: -5px;
+  right: -4px;
 }

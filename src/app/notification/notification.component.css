@@ -1,0 +1,39 @@
+.notification{
+    list-style: none;
+    padding: 0px;
+}
+
+.notification>div{
+    padding-top: 5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-bottom: 1px solid #373C42;
+    padding: 12px 8px;
+}
+
+.notification>div:hover{
+    background-color: rgba(206, 220, 234, 1);
+}
+
+.notification>div:last-child{
+    border-bottom: none;
+}
+
+.notification .new{
+    color: green;
+    font-weight: bold;
+}
+
+.notification .update{
+    color: blue;
+    font-weight: bold;
+}
+
+.notification .delete{
+    color: red;
+    font-weight: bold;
+}
+
+.markAsRead{
+    position: absolute;
+    right: 40px;
+}

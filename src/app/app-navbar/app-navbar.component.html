@@ -19,10 +19,16 @@
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="" (click)="auth.logout()">Logout</a></li>
-       <li>
+      <li style="position:relative">
+          <i class="fa fa-bell-o fa-2x" aria-hidden="true" placement="bottom"></i>
+          <span class="badge badge-success" *ngIf="notificationCount>0">
+              {{notificationCount}}
+          </span>
+      </li>
+      <li>
           <img [src]="auth.userDetails.photoURL" class="profile-pic"/>
       </li>
+      <li><a href="" (click)="auth.logout()">Logout</a></li>
     </ul>
   </div>
 </nav>

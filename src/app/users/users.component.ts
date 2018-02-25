@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { UserModel } from '../model/userModel';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ActivatedRoute } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-users',
@@ -14,7 +15,8 @@ export class UsersComponent implements OnInit {
 
   constructor(
     private db: AngularFireDatabase,
-    private routes: ActivatedRoute
+    private routes: ActivatedRoute,
+    private toast: ToastrService
   ) { }
 
   ngOnInit() {
@@ -29,11 +31,12 @@ export class UsersComponent implements OnInit {
   }
 
   onSubmit() {
-    const userTable = this.db.object('users/1');
+    const self = this;
+    const userTable = this.db.object('users/2');
     userTable.set(this.user).then(function() {
-      console.info('inserted');
+      self.toast.success('inserted', 'Success');
     }).catch(function(err) {
-      console.info(err);
+      self.toast.error('inserted', 'Error');
     });
   }
 

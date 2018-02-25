@@ -8,6 +8,7 @@ import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { ToastrModule } from 'ngx-toastr';
 import { MatTableModule } from '@angular/material/table';
+import { Ng2OrderModule } from 'ng2-order-pipe';
 
 
 import { AppComponent } from './app.component';
@@ -24,6 +25,7 @@ import { AuthGuardService } from './providers/auth-guard.service';
 import { UserListComponent } from './user-list/user-list.component';
 import { LoginComponent } from './login/login.component';
 import { FirebaseProviderService } from './providers/firebase-provider.service';
+import { NotificationComponent } from './notification/notification.component';
 
 
 @NgModule({
@@ -35,7 +37,8 @@ import { FirebaseProviderService } from './providers/firebase-provider.service';
     DashboardComponent,
     CourseComponent,
     UserListComponent,
-    LoginComponent
+    LoginComponent,
+    NotificationComponent
   ],
   imports: [
     BrowserModule,
@@ -46,8 +49,15 @@ import { FirebaseProviderService } from './providers/firebase-provider.service';
     NgbModule.forRoot(),
     AppRoutingModule,
     FormsModule,
-    ToastrModule.forRoot(),
-    MatTableModule
+    ToastrModule.forRoot({
+      timeOut: 5000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+      progressBar : true,
+      progressAnimation : 'increasing'
+    }),
+    MatTableModule,
+    Ng2OrderModule
   ],
   providers: [AppService, AuthService , AuthGuardService, FirebaseProviderService],
   bootstrap: [AppComponent]
